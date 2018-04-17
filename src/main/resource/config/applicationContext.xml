@@ -13,5 +13,5 @@
 	<!-- 包扫描 -->
 	<context:component-scan base-package="com.wang.*.*" />
 	<import resource="classpath*:/applicationContext-service.xml"/>
-	<bean id="beanClass" class="com.wang.ssmTest.BeanClass"/>
+	<bean id="beanClass" class="com.wang.ssmTest.BeanClass" lazy-init="true"/>
 </beans>
