@@ -12,6 +12,9 @@
 	http://www.springframework.org/schema/context/spring-context-3.2.xsd">
 	<!-- 包扫描 -->
 	<context:component-scan base-package="com.wang.*.*" />
-	<import resource="classpath*:/applicationContext-service.xml"/>
-	<bean id="beanClass" class="com.wang.ssmTest.BeanClass" lazy-init="true"/>
+	<import resource="classpath*:/applicationContext-service.xml" />
+	<bean id="singleClass" class="com.wang.ssmTest.BeanClass" />
+	<bean id="propertyClass" class="com.wang.ssmTest.BeanClass" scope="prototype" />
+	<bean id="requsetClass" class="com.wang.ssmTest.BeanClass" scope="request"/>
+	<bean id="sessionClass" class="com.wang.ssmTest.BeanClass" scope="session"/>
 </beans>
