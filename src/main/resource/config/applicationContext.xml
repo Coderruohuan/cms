@@ -11,10 +11,36 @@
 	http://www.springframework.org/schema/context 
 	http://www.springframework.org/schema/context/spring-context-3.2.xsd">
 	<!-- 包扫描 -->
-	<context:component-scan base-package="com.wang.*.*" />
-	<import resource="classpath*:/applicationContext-service.xml" />
-	<bean id="singleClass" class="com.wang.ssmTest.BeanClass" />
-	<bean id="propertyClass" class="com.wang.ssmTest.BeanClass" scope="prototype" />
-	<bean id="requsetClass" class="com.wang.ssmTest.BeanClass" scope="request"/>
-	<bean id="sessionClass" class="com.wang.ssmTest.BeanClass" scope="session"/>
+	<context:component-scan base-package="com.wang.*" />
+	<!-- <import resource="classpath*:/applicationContext-service.xml" /> <bean 
+		id="singleClass" class="com.wang.ssmTest.BeanClass" /> <bean id="propertyClass" 
+		class="com.wang.ssmTest.BeanClass" scope="prototype" /> <bean id="requsetClass" 
+		class="com.wang.ssmTest.BeanClass" scope="request"/> <bean id="sessionClass" 
+		class="com.wang.ssmTest.BeanClass" scope="session"/> -->
+
+	<!-- 配置数据源 -->
+	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+		<property name="jdbcUrl" value="jdbc:mysql://localhost:3306/wang" />
+		<property name="password" value="123456" />
+		<property name="user" value="root" />
+		<property name="driverClass" value="com.mysql.jdbc.Driver" />
+	</bean>
+
+	<!-- sqlSession 配置 -->
+	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="mapperLocations" value="classpath*:mapper/*.xml" />
+	</bean>
+
+	<!-- dao 接口扫描 -->
+	<bean id="mapperScannerConfigurer" class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<!-- 指定要扫描的包 -->
+		<property name="basePackage" value="dao" />
+	</bean>
+
+	<!-- 数据库配置 -->
+	<!-- <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate"> 
+		<property name="dataSource" ref="dataSource" /> </bean> -->
+	<!-- 事务配置 -->
+
 </beans>

@@ -14,6 +14,21 @@
 
 
 	<servlet>
+		<servlet-name>dispatcher</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<init-param>
+			<param-name>contextConfigLocation</param-name>
+			<param-value>classpath*:config/applicationContext.xml</param-value>
+		</init-param>
+	</servlet>
+
+<!--  No naming context bound to this class loader -->
+	<servlet-mapping>
+		<servlet-name>dispatcher</servlet-name>
+		<url-pattern>/</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
 		<servlet-name>beanServlet</servlet-name>
 		<servlet-class>com.wang.ssmTest.BeanServlet</servlet-class>
 	</servlet>
@@ -22,10 +37,6 @@
 		<servlet-name>beanServlet</servlet-name>
 		<url-pattern>/bean1</url-pattern>
 	</servlet-mapping>
-
-
-
-
 
 	<servlet>
 		<servlet-name>beanServlet1</servlet-name>
