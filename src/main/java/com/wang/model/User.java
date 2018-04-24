@@ -1,5 +1,8 @@
 package com.wang.model;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class User {
 
 	private String username;
