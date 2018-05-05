@@ -4,7 +4,17 @@
 
 <mapper namespace="com.wang.dao.UserDao">
 	<insert id="insert">
-	insert INTO userinfo(username,password)
-	VALUES(#{user.username},#{user.password})
+		insert INTO userinfo(username,password)
+		VALUES(#{user.username},#{user.password})
 	</insert>
+
+
+	<update id="update">
+		update userinfo set password=#{password} where id=#{id}
+	</update>
+
+	<update id="updateByName">
+		update userinfo set password=#{password} where username=#{username}
+	</update>
+
 </mapper>

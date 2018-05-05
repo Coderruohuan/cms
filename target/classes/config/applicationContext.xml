@@ -3,9 +3,12 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
 	xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
 	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:aop="http://www.springframework.org/schema/aop"
 	xsi:schemaLocation="
 	http://www.springframework.org/schema/mvc
 	http://www.springframework.org/schema/mvc/spring-mvc.xsd
+	http://www.springframework.org/schema/aop
+	http://www.springframework.org/schema/aop/spring-aop-3.2.xsd
 	http://www.springframework.org/schema/beans 
 	http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
     http://www.springframework.org/schema/tx
@@ -27,6 +30,7 @@
 		<property name="user" value="root" />
 		<property name="driverClass" value="com.mysql.jdbc.Driver" />
 	</bean>
+
 
 	<!-- sqlSession 配置 -->
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
@@ -53,4 +57,9 @@
 
 	<tx:annotation-driven transaction-manager="transactionManager" />
 	
+	<!-- aop配置 -->
+<!-- 	<aop:config>
+	  <aop:pointcut expression="" id=""/>
+	  <aop:aspect><aop:after-throwing method="" pointcut-ref=""/></aop:aspect>
+	</aop:config> -->
 </beans>

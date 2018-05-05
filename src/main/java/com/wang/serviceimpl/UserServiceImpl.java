@@ -20,6 +20,7 @@ public class UserServiceImpl implements UserService {
 	@Transactional(readOnly = false, isolation = Isolation.READ_COMMITTED, propagation = Propagation.REQUIRES_NEW)
 	public void insert(User user) {
 		userDao.insert(user);
+		userDao.update("1234", 1L);
 	}
 
 }
