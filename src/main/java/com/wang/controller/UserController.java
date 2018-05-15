@@ -29,6 +29,8 @@ public class UserController {
 		try {
 			transactionService.methodA();
 		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
 
 		}
 	}

@@ -2,8 +2,7 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
 	xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
-	xmlns:mvc="http://www.springframework.org/schema/mvc"
-	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:aop="http://www.springframework.org/schema/aop"
 	xsi:schemaLocation="
 	http://www.springframework.org/schema/mvc
 	http://www.springframework.org/schema/mvc/spring-mvc.xsd
@@ -17,6 +16,7 @@
 	http://www.springframework.org/schema/context/spring-context-3.2.xsd">
 	<!-- 包扫描 -->
 	<context:component-scan base-package="com.wang.*" />
+	<!-- bean的四种作用域 -->
 	<!-- <import resource="classpath*:/applicationContext-service.xml" /> <bean 
 		id="singleClass" class="com.wang.ssmTest.BeanClass" /> <bean id="propertyClass" 
 		class="com.wang.ssmTest.BeanClass" scope="prototype" /> <bean id="requsetClass" 
@@ -56,10 +56,21 @@
 	</bean>
 
 	<tx:annotation-driven transaction-manager="transactionManager" />
+
+		<!-- 配置织入@Aspectj切面 -->
+	<aop:aspectj-autoproxy proxy-target-class="true" />
 	
-	<!-- aop配置 -->
-<!-- 	<aop:config>
-	  <aop:pointcut expression="" id=""/>
-	  <aop:aspect><aop:after-throwing method="" pointcut-ref=""/></aop:aspect>
-	</aop:config> -->
+	<bean id="transactionService" class="com.wang.serviceimpl.TransactionServiceImpl"></bean>
+	
+	<!-- aop配置 ,aop是命名空间，config是标签 -->
+	<aop:config>
+	<!-- 切面是个bean -->
+		<aop:aspect ref="transactionService"> 
+			<aop:pointcut
+				expression="execution(* com.wang.serviceimpl.TransactionBServiceImpl.method*(..))"
+				id="mypoint" />
+			<aop:before  method="print"
+				pointcut-ref="mypoint" />
+		</aop:aspect>
+	</aop:config>
 </beans>

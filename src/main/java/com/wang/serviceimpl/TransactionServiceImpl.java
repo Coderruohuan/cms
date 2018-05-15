@@ -22,7 +22,7 @@ public class TransactionServiceImpl implements TransactionService {
 	private TransactionBService transactionBService;
 
 	@Override
-	@Transactional(propagation = Propagation.MANDATORY)
+	@Transactional(propagation = Propagation.REQUIRED)
 	public int methodA() throws Exception {
 		User user = new User();
 		user.setPassword("2018-05-02");
@@ -35,6 +35,11 @@ public class TransactionServiceImpl implements TransactionService {
 			// throw new Exception();
 		}
 		return 0;
+	}
+
+	@Override
+	public void print() {
+		System.out.println("增强执行......");
 	}
 
 }

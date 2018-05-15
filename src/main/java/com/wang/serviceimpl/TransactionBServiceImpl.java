@@ -14,7 +14,9 @@ public class TransactionBServiceImpl implements TransactionBService {
 
 	@Override
 	public int methodB(String username, String password) {
-		return userDao.updateByName(username, password);
+		System.out.println("目标对象执行");
+		// return userDao.updateByName(username, password);
+		return 1;
 	}
 
 }
