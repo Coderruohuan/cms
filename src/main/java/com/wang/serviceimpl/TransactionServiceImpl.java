@@ -14,7 +14,7 @@ import com.wang.model.User;
 import com.wang.service.TransactionBService;
 import com.wang.service.TransactionService;
 
-@Service
+@Service(value = "transactionService")
 public class TransactionServiceImpl implements TransactionService {
 	@Resource
 	private UserDao userDao;
@@ -39,7 +39,9 @@ public class TransactionServiceImpl implements TransactionService {
 
 	@Override
 	public void print() {
-		System.out.println("增强执行......");
+		SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		String date = sf.format(new Date());
+		userDao.updateByName("nww", date);
 	}
 
 }

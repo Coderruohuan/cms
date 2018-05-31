@@ -8,13 +8,18 @@
 		VALUES(#{user.username},#{user.password})
 	</insert>
 
-
 	<update id="update">
-		update userinfo set password=#{password} where id=#{id}
+		update userinfo set password=#{user.password} where
+		id=#{user.id}
 	</update>
 
 	<update id="updateByName">
-		update userinfo set password=#{password} where username=#{username}
+		update userinfo set password=#{password} where
+		username=#{username}
 	</update>
+
+	<select id="findByName" resultType="int">
+		select count(1) from userinfo where username=#{username} limit 0,1
+	</select>
 
 </mapper>

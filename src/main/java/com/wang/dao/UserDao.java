@@ -8,8 +8,10 @@ public interface UserDao {
 
 	int insert(@Param("user") User user);
 
-	int update(@Param("password") String password, @Param("id") Long id);
-
 	int updateByName(@Param("username") String username, @Param("password") String password);
+
+	int update(@Param("user") User user);
+
+	User findByName(@Param("username") String username);
 
 }

@@ -55,22 +55,22 @@
 		<property name="dataSource" ref="dataSource" />
 	</bean>
 
+	<!-- 配置织入@Aspectj切面 -->
+	<aop:aspectj-autoproxy proxy-target-class="true" />
+
+	<!-- <bean id="transactionService" class="com.wang.serviceimpl.TransactionServiceImpl"></bean> -->
+
+	<!-- aop配置 ,aop是命名空间，config是标签 -->
+	<!-- <aop:config> 切面是个bean <aop:aspect ref="transactionService"> <aop:pointcut 
+		expression="execution(* com.wang.serviceimpl.TransactionBServiceImpl.method*(..))" 
+		id="mypoint" /> <aop:before method="print" pointcut-ref="mypoint" /> </aop:aspect> 
+		</aop:config> <aop:config> <aop:pointcut expression="execution(* com.wang.serviceimpl.TransactionBServiceImpl.*(..))" 
+		id="mypoint" /> <aop:advisor advice-ref="advisorService" pointcut-ref="mypoint"/> 
+		</aop:config> -->
+	<!--开启事务管理器 -->
 	<tx:annotation-driven transaction-manager="transactionManager" />
 
-		<!-- 配置织入@Aspectj切面 -->
-	<aop:aspectj-autoproxy proxy-target-class="true" />
-	
-	<bean id="transactionService" class="com.wang.serviceimpl.TransactionServiceImpl"></bean>
-	
-	<!-- aop配置 ,aop是命名空间，config是标签 -->
-	<aop:config>
-	<!-- 切面是个bean -->
-		<aop:aspect ref="transactionService"> 
-			<aop:pointcut
-				expression="execution(* com.wang.serviceimpl.TransactionBServiceImpl.method*(..))"
-				id="mypoint" />
-			<aop:before  method="print"
-				pointcut-ref="mypoint" />
-		</aop:aspect>
-	</aop:config>
+
+
+
 </beans>

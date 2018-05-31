@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.wang.model.User;
+import com.wang.service.TransactionBService;
 import com.wang.service.TransactionService;
 import com.wang.service.UserService;
 
@@ -17,6 +18,8 @@ public class UserController {
 	private UserService userService;
 	@Resource
 	private TransactionService transactionService;
+	@Resource
+	private TransactionBService transactionBService;
 
 	@RequestMapping(value = "/insert", method = RequestMethod.POST)
 	public String insert(User user) {
@@ -33,5 +36,10 @@ public class UserController {
 		} finally {
 
 		}
+	}
+
+	@RequestMapping(value = "/test2", method = RequestMethod.GET)
+	public void test2() {
+		transactionBService.test();
 	}
 }
