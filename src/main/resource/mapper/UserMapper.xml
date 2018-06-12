@@ -18,8 +18,8 @@
 		username=#{username}
 	</update>
 
-	<select id="findByName" resultType="int">
-		select count(1) from userinfo where username=#{username} limit 0,1
+	<select id="findByName" resultType="com.wang.model.User">
+		select * from userinfo where username=#{username} limit 0,1
 	</select>
 
 </mapper>

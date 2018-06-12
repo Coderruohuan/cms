@@ -42,4 +42,10 @@ public class UserController {
 	public void test2() {
 		transactionBService.test();
 	}
+
+	@RequestMapping(value = "/find", method = RequestMethod.GET)
+	public void find(String username) {
+		User user = userService.findByName(username);
+		System.out.println(user.getUsername());
+	}
 }
