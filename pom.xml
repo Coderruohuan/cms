@@ -20,7 +20,8 @@
 		<mapper.version>3.4.0</mapper.version>
 		<eclipse.jetty.version>8.2.0.v20160908</eclipse.jetty.version>
 		<log4j_version>1.2.16</log4j_version>
-		<spring.redis>2.0.7.RELEASE</spring.redis>
+		<spring.redis>1.6.2.RELEASE</spring.redis>
+		<spring.version>4.0.0.RELEASE</spring.version>
 	</properties>
 
 	<dependencies>
@@ -146,5 +147,18 @@
 			<version>${spring.redis}</version>
 		</dependency>
 
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-pool2</artifactId>
+			<version>2.4.2</version>
+		</dependency>
+
 	</dependencies>
+
 </project>
