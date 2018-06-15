@@ -22,6 +22,7 @@
 		<log4j_version>1.2.16</log4j_version>
 		<spring.redis>1.6.2.RELEASE</spring.redis>
 		<spring.version>4.0.0.RELEASE</spring.version>
+		<spring.elasticsearch>2.1.7.RELEASE</spring.elasticsearch>
 	</properties>
 
 	<dependencies>
@@ -147,6 +148,13 @@
 			<version>${spring.redis}</version>
 		</dependency>
 
+		<!-- elasticsearch -->
+		<dependency>
+			<groupId>org.springframework.data</groupId>
+			<artifactId>spring-data-elasticsearch</artifactId>
+			<version>${spring.elasticsearch}</version>
+		</dependency>
+		
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-test</artifactId>

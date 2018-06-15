@@ -49,7 +49,7 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	@Cacheable(value = "username", key = "#username", condition = "#username=='wwn'")
+	@Cacheable(value = "user", key = "username")
 	public User findByName(String username) {
 		System.out.println("查询数据库了.......");
 		return userDao.findByName(username);
