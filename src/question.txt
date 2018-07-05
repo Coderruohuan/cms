@@ -32,3 +32,15 @@ https://blog.csdn.net/xuguokun1986/article/details/49906957
 
 
 elasticsearch的客户端版本必须与服务端版本主版本保持一致。
+
+
+
+ELK 2.0版本过断时间后被关闭问题
+
+
+
+
+
+
+
+
