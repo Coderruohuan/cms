@@ -23,6 +23,7 @@
 		<spring.redis>1.6.2.RELEASE</spring.redis>
 		<spring.version>4.0.0.RELEASE</spring.version>
 		<spring.elasticsearch>2.1.7.RELEASE</spring.elasticsearch>
+		<dubbo_version>2.8.4</dubbo_version>
 	</properties>
 
 	<dependencies>
@@ -181,7 +182,13 @@
 			<artifactId>activemq-all</artifactId>
 			<version>5.12.0</version>
 		</dependency>
-		
+
+		<!-- dubbo -->
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>dubbo</artifactId>
+			<version>${dubbo_version}</version>
+		</dependency>
 	</dependencies>
 
 </project>
